@@ -1,0 +1,74 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Style-Type" content="text/css">
+<title></title>
+<meta name="Generator" content="Cocoa HTML Writer">
+<meta name="CocoaVersion" content="1038.36">
+<style type="text/css">
+p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 18.0px Helvetica}
+p.p2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px Monaco; min-height: 12.0px}
+p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica}
+p.p4 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px Helvetica; min-height: 14.0px}
+p.p5 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px Monaco; color: #dc0000}
+p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px Monaco}
+p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px Monaco; color: #1000d0}
+span.s1 {font: 15.0px Helvetica}
+span.s2 {color: #1000d0}
+span.s3 {color: #737373}
+span.s4 {color: #000000}
+span.s5 {color: #dc0000}
+span.Apple-tab-span {white-space:pre}
+</style>
+</head>
+<body>
+<p class="p1"><b>LayeredMultiSlider<span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span></b><span class="s1"><b>a combined SCView</b></span></p>
+<p class="p2"><br></p>
+<p class="p3"><b><span class="Apple-tab-span">	</span>*new(containerView, width, height, numSliders, numLayers, colours, layerNames);</b></p>
+<p class="p4"><b></b><br></p>
+<p class="p3"><b><span class="Apple-tab-span">	</span>containerView</b>: <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>an <b>SCWindow</b> or <b>SCCompositeView</b></p>
+<p class="p3"><span class="Apple-tab-span">	</span><b>width</b><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>width of the <b>LayeredMultiSlider</b> (total = width + 8)</p>
+<p class="p3"><span class="Apple-tab-span">	</span><b>height</b><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>height of the <b>LayeredMultiSlider</b> (total = height + 32)</p>
+<p class="p3"><span class="Apple-tab-span">	</span><b>numSliders</b><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>number of sliders in each <b>SCMultiSlider</b></p>
+<p class="p3"><span class="Apple-tab-span">	</span><b>numLayers</b><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>number of layers to use</p>
+<p class="p3"><span class="Apple-tab-span">	</span><b>colours</b><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>an (optional) array of colours for each layer</p>
+<p class="p3"><span class="Apple-tab-span">	</span><b>layerNames</b><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>an (optional) array of names for each layer</p>
+<p class="p4"><br></p>
+<p class="p3"><span class="Apple-tab-span">	</span><b>*value(layer, slider)</b> <span class="Apple-tab-span">	</span>get value of single slider in layer</p>
+<p class="p3"><span class="Apple-tab-span">	</span><b>*valueArray(layer)</b> <span class="Apple-tab-span">	</span><span class="Apple-tab-span">	</span>get value of all sliders in layer</p>
+<p class="p3"><span class="Apple-tab-span">	</span><b>*value_(layer, slider)</b> <span class="Apple-tab-span">	</span>set value of single slider in layer</p>
+<p class="p3"><span class="Apple-tab-span">	</span><b>*valueArray_(layer)</b> <span class="Apple-tab-span">	</span>set value of all sliders in layer</p>
+<p class="p4"><br></p>
+<p class="p5">// Example</p>
+<p class="p2"><br></p>
+<p class="p6">(</p>
+<p class="p5">// How to add a LayeredMultiSlider to a window</p>
+<p class="p2"><br></p>
+<p class="p6">w= <span class="s2">SCWindow</span>(<span class="s3">"LayeredMultiSlider test"</span>, <span class="s2">Rect</span>(128, 227, 500, 200)).front;</p>
+<p class="p2"><br></p>
+<p class="p6">w.view.decorator= <span class="s2">FlowLayout</span>(w.view.bounds);</p>
+<p class="p2"><br></p>
+<p class="p7"><span class="s4">n= </span>LayeredMultiSlider<span class="s4">(</span></p>
+<p class="p5"><span class="s4"><span class="Apple-tab-span">	</span>w, </span>// containerView</p>
+<p class="p6"><span class="Apple-tab-span">	</span>(w.bounds.width-16), <span class="s5">// width</span></p>
+<p class="p5"><span class="s4"><span class="Apple-tab-span">	</span>60, </span>// height</p>
+<p class="p5"><span class="s4"><span class="Apple-tab-span">	</span>16, </span>// numSliders</p>
+<p class="p5"><span class="s4"><span class="Apple-tab-span">	</span>4 </span>// numLayers, colours, layerNames</p>
+<p class="p6">);</p>
+<p class="p6">)</p>
+<p class="p2"><br></p>
+<p class="p5">// run this line to set the value of a single slider in a layer:</p>
+<p class="p6">n.value_(1, 4, 0.666);</p>
+<p class="p2"><br></p>
+<p class="p5">// run this line to get the value of a single slider in a layer:</p>
+<p class="p6">n.value(1, 4);</p>
+<p class="p2"><br></p>
+<p class="p5">// run this line to set the value of all the sliders in a layer:</p>
+<p class="p6">n.valueArray_(1, <span class="s2">Array</span>.fill(16,{1.0.rand}));</p>
+<p class="p2"><br></p>
+<p class="p5">// run this line to get the value of all the sliders in a layer:</p>
+<p class="p6">n.valueArray(1);</p>
+<p class="p2"><br></p>
+</body>
+</html>
